@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo hmod 755 ./ */
+sudo hmod ugo+x ./ */
