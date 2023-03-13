@@ -1,2 +1,2 @@
 #!/bin/bash
-echo  "Best Shcool" > "$(echo "\\*\\\\'\"Best School\"\\'\\\\*$\?\*\*\*\*\*:)")"
+echo  'Best Shcool' > "$(echo "\\*\\\\'\"Best School\"\\'\\\\*$\?\*\*\*\*\*:)")"
