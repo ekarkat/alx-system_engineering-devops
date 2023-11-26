@@ -3,6 +3,6 @@
 Host alx_server
     HostName 34.203.77.10
     IdentityFile ~/.ssh/school
-
+	
 # Disable password authentication globally
 PasswordAuthentication no
