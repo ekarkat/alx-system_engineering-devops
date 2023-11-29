@@ -4,12 +4,12 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo chown -R "$USER":"$USER" /var/www/html
-sudo echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
 # Configure redirection
 sudo chown -R "$USER":"$USER" /etc/nginx/sites-enabled
 sudo rm /etc/nginx/sites-enabled/default
-sudo echo "server {
+echo "server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
