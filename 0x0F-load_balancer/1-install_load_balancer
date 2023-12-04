@@ -26,7 +26,9 @@ echo "global
 # Default section
 defaults 0x0f
     mode http
-
+	timeout connect 10000
+	timeout client  10000
+	timeout server  10000
 # Frontend section
 frontend website from 0x0f
     bind *:80
