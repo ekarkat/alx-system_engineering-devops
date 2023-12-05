@@ -39,8 +39,8 @@ frontend website from 0x0f
 # Backend section
 backend web_servers from 0x0f
     balance roundrobin
-    server 353728-web-02 34.203.77.10:80 check
-    server 353728-web-01 35.153.93.177:80 check" > /etc/haproxy/haproxy.cfg
+    server 353728-web-01 34.203.77.10:80 check
+    server 353728-web-02 35.153.93.177:80 check" > /etc/haproxy/haproxy.cfg
 
 # Restart Haproxy
 sudo service haproxy restart
