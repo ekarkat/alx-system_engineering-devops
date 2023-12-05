@@ -12,6 +12,7 @@ sudo apt-get -y install haproxy=2.8.\*
 # Getting access privileges to config
 sudo chown -R "$USER":"$USER" /etc/default/haproxy
 sudo cp /etc/haproxy/haproxy.cfg old_haproxy_cfg
+echo "ENABLED=1" > /etc/default/haproxy
 
 echo "global
     log /dev/log    local0
@@ -38,8 +39,8 @@ frontend website from 0x0f
 # Backend section
 backend web_servers from 0x0f
     balance roundrobin
-    server s1 34.203.77.10:80 check
-    server s2 35.153.93.177:80 check" > /etc/haproxy/haproxy.cfg
+    server 353728-web-02 34.203.77.10:80 check
+    server 353728-web-01 35.153.93.177:80 check" > /etc/haproxy/haproxy.cfg
 
 # Restart Haproxy
 sudo service haproxy restart
