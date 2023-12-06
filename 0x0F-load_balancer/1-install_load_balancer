@@ -25,19 +25,19 @@ echo "global
     daemon
 
 # Default section
-defaults 0x0f
+defaults
     mode http
 	timeout connect 3000
 	timeout client  10000
 	timeout server  10000
 
 # Frontend section
-frontend website from 0x0f
+frontend website
     bind *:80
     default_backend web_servers
 
 # Backend section
-backend web_servers from 0x0f
+backend web_servers
     balance roundrobin
     server 353728-web-01 34.203.77.10:80 check
     server 353728-web-02 35.153.93.177:80 check" > /etc/haproxy/haproxy.cfg
