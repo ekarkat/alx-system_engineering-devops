@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Dig domains 
+
+#creat a list of subdomains
+sub=("www" "lb-01" "web-01" "web-02")
+dig_output=()
+
+
+if [ "$#" -eq 1 ]; then
+	for subdom in "${sub[@]}"; do
+		dig_output+=( "$(dig "${subdom}.$1" | grep -A1 'ANSWER SECTION:')" )
+	done
+	for i in {0..4}; do
+		dig_output[$i]="$(echo "${dig_output[$i]}" | tail -n 1)"
+	done
+
+	for i in {0..3};do
+		echo "${sub[$i]} ${dig_output[$i]}" | awk '{print "The subdomain " $1 " is a " $5 " record and points to " $6}'
+	done
+fi
+
+if [ "$#" -eq 2 ]; then
+	output="$(dig "$2.$1" | grep -A1 'ANSWER SECTION:')"
+	output="$(echo "$output" | tail -n 1)"
+	echo "$2 $output" | awk '{print "The subdomain " $1 " is a " $5 " record and points to " $6}'
+fi
