@@ -1,0 +1,32 @@
+global
+        log 127.0.0.1 local0 notice
+        maxconn 2000
+        user haproxy
+        group haproxy
+        ssl-dh-param-file /etc/haproxy/dhparams.pem
+
+defaults
+        log   global
+        mode  http
+        option  httplog
+        option  dontlognull
+        retries 3
+        option redispatch
+        timeout connect  5000
+        timeout client  10000
+        timeout server  10000
+
+frontend www-https
+        bind   0.0.0.0:80
+        bind   0.0.0.0:443 ssl crt /etc/haproxy/certs/www.justdont.tech.pem
+        http-request set-header X-Forwarded-Proto https if { ssl_fc }
+        http-request set-header X-Forwarded-Proto http if !{ ssl_fc }
+        http-request redirect scheme https unless { ssl_fc }
+        option forwardfor
+        default_backend www-backend
+
+
+backend www-backend
+        balance  roundrobin
+        server s1 34.203.77.10:80 check
+        server s2 35.153.93.177:80 check
