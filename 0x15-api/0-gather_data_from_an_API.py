@@ -7,7 +7,7 @@ from sys import argv
 
 if __name__ == "__main__":
     # task 0 function
-    id = argv[1]
+    id = 2
     params_todo = {"userId": id}
     params_user = {"id": id}
     url_todo = "https://jsonplaceholder.typicode.com/todos"
@@ -34,4 +34,4 @@ if __name__ == "__main__":
 
     for dic in data_todo:
         if dic.get("completed"):
-            print(f" \t{dic.get('title')}")
+            print("\t {}".format(dic.get('title')))
