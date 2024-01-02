@@ -21,16 +21,15 @@ if __name__ == "__main__":
 
     username = data_user[0].get("username")
 
-
-# Open a file in write mode ('w')
-# If the file doesn't exist, it will be created
-# If the file already exists, its content will be truncated
-with open('{}.csv'.format(id), 'w') as file:
-    # Write content to the file
-    for i in range(len(data_todo)):
-        completed = data_todo[i].get("completed")
-        title = data_todo[i].get("title")
-        output = f'"{id}","{username}","{completed}","{title}"'
-        file.write(output)
-        if i != len(data_todo) - 1:
-            file.write("\n")
+    # Open a file in write mode ('w')
+    # If the file doesn't exist, it will be created
+    # If the file already exists, its content will be truncated
+    with open('{}.csv'.format(id), 'w') as file:
+        # Write content to the file
+        for i in range(len(data_todo)):
+            completed = data_todo[i].get("completed")
+            title = data_todo[i].get("title")
+            output = f'"{id}","{username}","{completed}","{title}"'
+            file.write(output)
+            if i != len(data_todo) - 1:
+                file.write("\n")
