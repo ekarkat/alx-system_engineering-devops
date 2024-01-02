@@ -7,7 +7,7 @@ import requests
 
 if __name__ == "__main__":
     # task 0 function
-    id = "2"
+    id = argv[1]
     params_todo = {"userId": id}
     params_user = {"id": id}
     url_todo = "https://jsonplaceholder.typicode.com/todos"
