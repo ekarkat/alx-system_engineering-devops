@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+""" TAsk0 model """
+
 import json
 import requests
 from sys import argv
