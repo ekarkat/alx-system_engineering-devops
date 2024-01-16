@@ -9,8 +9,8 @@ def top_ten(subreddit):
     headers = {"User-Agent": "ALX 0x16.api_advanced"}
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 200:
-        results = response.json().get("data")
-        return results
+        results = response.json().get("data").get("children")
+        return results.get("children")
     else:
         return 0
 
