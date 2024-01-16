@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Task 0 Module """
 import requests
-import json
+
 
 def top_ten(subreddit):
     """Return returns the hot list of a sub"""
@@ -10,13 +10,10 @@ def top_ten(subreddit):
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 200:
         results = response.json().get("data").get("children")
-        return results.get("children")
+        i = 0
+        for title in results:
+            if i < 10:
+                print(title.get("data").get("title"))
+            i = i + 1
     else:
-        return 0
-
-
-file_path = "output.json"
-
-# Write the dictionary to the JSON file
-with open(file_path, 'w') as json_file:
-    json.dump(top_ten("Morocco"), json_file, indent=2)  
+        print(None)
