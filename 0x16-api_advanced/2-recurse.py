@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Tasl 2 model"""
 import requests
 
 
