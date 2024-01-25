@@ -1,0 +1,19 @@
+server {
+        listen 80;
+        listen [::]:80;
+
+        server_name _;
+        root /var/www/html;
+        index index.html;
+        add_header X-Served-By 353728-web-01 always;
+
+        location /api/ {
+                proxy_pass http://localhost:5002/api/;
+                proxy_redirect off;
+        }
+        error_page 404 /404.html;
+        location = /404.html {
+        root /var/www/html;
+        internal;
+    }
+}
