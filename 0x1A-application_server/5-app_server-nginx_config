@@ -8,7 +8,7 @@ server {
         add_header X-Served-By 353728-web-01 always;
 
         location / {
-                proxy_pass http://localhost:5003/2-hbnb/;
+            proxy_pass http://localhost:5003/2-hbnb/;
         }
 		location /static/ {
 		alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static/;
